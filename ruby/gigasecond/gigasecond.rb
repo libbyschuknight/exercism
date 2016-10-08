@@ -3,7 +3,9 @@ module BookKeeping
 end
 
 class Gigasecond
-  def self.from(time)
-    time + 1_000_000_000
+  GIGASECOND = 10**9
+
+  def self.from(time_object)
+    time_object + GIGASECOND
   end
 end
