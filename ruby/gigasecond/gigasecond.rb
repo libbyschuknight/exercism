@@ -5,7 +5,7 @@ end
 class Gigasecond
   GIGASECOND = 10**9
 
-  def self.from(time_object)
-    time_object + GIGASECOND
+  def self.from(moment_in_time)
+    moment_in_time + GIGASECOND
   end
 end

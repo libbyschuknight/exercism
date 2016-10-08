@@ -31,6 +31,12 @@ class GigasecondTest < Minitest::Test
     assert_equal Time.utc(2046, 10, 3, 1, 46, 39), result
   end
 
+  # from kotp
+  def test_seconds_presented_as_a_plain_old_number
+    result = Gigasecond.from(15.25)
+    assert_equal 1e9 + 15.25, result
+  end
+
   # Test your 1Gs anniversary
   def test_with_your_birthday
     result = Gigasecond.from(Time.utc(1974, 7, 20, 19, 56, 00))
