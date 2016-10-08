@@ -1,27 +1,17 @@
 class Hamming
 
-  def self.compute(string_1, string_2)
+  def self.compute(strand_1, strand_2)
+    strand_1 = strand_1.chars
+    strand_2 = strand_2.chars
 
-    if string_1.length != string_2.length
-      raise ArgumentError
-    end
+    raise ArgumentError if strand_1.length != strand_2.length
 
     count = 0
 
-    string_1.chars.each_with_index do |char1, index1 |
-      string_2.chars.each_with_index do |char2, index2|
-        if index1 == index2
-          if char1 != char2
-            count += 1
-          end
-        else
-          nil
-        end
-      end
+    strand_1.zip(strand_2).map do | n1, n2|
+      count += 1 unless n1 == n2
     end
-
     count
-
   end
 end
 
