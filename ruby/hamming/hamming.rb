@@ -11,5 +11,4 @@ class Hamming
   def self.to_array(strand)
     strand.chars
   end
-
 end
