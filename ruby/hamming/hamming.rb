@@ -3,10 +3,13 @@ module BookKeeping
 end
 
 class Hamming
-  def self.compute(strand_1, strand_2)
-    raise ArgumentError, "Strands are not equal in length" if strand_1.length != strand_2.length
-    strand_1 = strand_1.chars
-    strand_2 = strand_2.chars
-    strand_1.zip(strand_2).count { |nucleotide1, nucleotide2| nucleotide1 != nucleotide2 }
+  def self.compute(s1, s2)
+    raise ArgumentError, "Strands are not equal in length" if s1.length != s2.length
+    to_array(s1).zip(to_array(s2)).count { |n1, n2| n1 != n2 }
   end
+
+  def self.to_array(strand)
+    strand.chars
+  end
+
 end
